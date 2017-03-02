@@ -6,6 +6,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="WithOutClosure.js"></script>
     <script type="text/javascript" src="WithClosure.js"></script>
+    <script type="text/javascript" src="AddValueWithClosure.js"></script>
 </head>
 
 <body>
@@ -60,6 +61,28 @@
         </code></pre>
     </div>
 
+    <p><a href="#" id="addNumberWithClosure">Add Number With Closure</a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            $(function() {
+                function outerFunction(firstNumber) {
+                    var constValue = 8;
+
+                    function innerFunction(secondNumber) {
+                        alert(firstNumber + secondNumber + constValue);
+                    }
+
+                    return innerFunction;
+                }
+
+                $("#addNumberWithClosure").click(function() {
+                    var callingFunction = outerFunction(3);
+                    callingFunction(5);
+                });
+            });
+        </code></pre>
+    </div>
 </body>
 
 </html>
