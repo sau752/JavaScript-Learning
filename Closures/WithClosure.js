@@ -27,4 +27,4 @@ $(function () {
 //ENVIRONMENT consist of LOCAL variable and INPUT parameter passed
 
 
-//Used in JavaScript module pattern
+//CLOSURE is used in JavaScript module pattern
