@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Closure Basics</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="BasicScript.js"></script>
+    <script type="text/javascript" src="ClosureScript.js"></script>
+</head>
+
+<body>
+
+    <h1>Closure Basics</h1>
+
+    <p><a href="#" id="anchorNonClosure">Without closure example</a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            $(function () {
+
+                function createCat() {
+
+                    var catName = "I am Kitty Without Closure";
+                    function catFactory() {
+                        alert(catName);
+                    }
+
+                    catFactory(); //in closure REFERENCE of function is returned but here innner function is called, hence this is not a closure
+                }
+
+                $("#anchorNonClosure").click(function () {
+                    createCat(); //inner function is called
+                });
+            });
+
+        </code></pre>
+    </div>
+
+    <p><a href="#" id="anchorClosure">With closure example</a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            $(function () {
+
+                function createCat() {
+
+                    var catName = "I am another Kitty with Closure";
+                    function catFactory() {
+                        alert(catName);
+                    }
+
+                    return catFactory; //in closure REFERENCE of function is returned - hence this is a closure
+                }
+
+                $("#anchorClosure").click(function () {
+                    var catObj = createCat(); //catFactory function is returned
+                    catObj();
+                });
+            });
+        </code></pre>
+    </div>
+
+</body>
+
+</html>
