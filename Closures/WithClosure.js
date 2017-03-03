@@ -28,3 +28,5 @@ $(function () {
 
 
 //CLOSURE is used in JavaScript module pattern
+
+//CLOSURE actually do not store value themselves but they instead store REFERENCES to outer function variables

@@ -83,6 +83,34 @@
             });
         </code></pre>
     </div>
+
+    <p><a href="#" id="addMultipleNumberWithClosure">Add Multiple Numbers ex. sum(2)(9)(41)</a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            function addMultiple(numberOne) {
+
+                function addFirst(numberTwo) {
+
+                    var OnePlusTwo = numberOne + numberTwo;
+
+                    function addSecond(numberThree) {
+                        alert(OnePlusTwo + numberThree);
+                    }
+
+                    return addSecond;
+                }
+
+                return addFirst;
+            }
+
+            $("#addMultipleNumberWithClosure").click(function() {
+                addMultiple(2)(9)(41);
+            });
+        </code></pre>
+    </div>
+
+
 </body>
 
 </html>
