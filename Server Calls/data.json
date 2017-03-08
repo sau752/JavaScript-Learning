@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Samosa",
+        "price": 10,
+        "isAvailable": true
+    },
+    {
+        "name": "Dosa",
+        "price": 35,
+        "isAvailable": true
+    },
+    {
+        "name": "Idly",
+        "price": 30,
+        "isAvailable": true
+    },
+    {
+        "name": "Paratha",
+        "price": 50,
+        "isAvailable": false
+    },
+    {
+        "name": "Noodles",
+        "price": 50,
+        "isAvailable": true
+    }
+]
