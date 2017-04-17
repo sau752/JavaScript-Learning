@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Call Apply Bind Basics</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+    <h1>Call Apply Bind Basics</h1>
+
+    <p><strong>The one similarity between all of these functions is that their first argument is always the 'this' value, or context</strong></p>
+
+
+    <p><a href="#" id="anchorCallFunction"><strong>Call Function</strong></a> - Call is the simplest of them all. It is exactly the same as invoking a function as you would do normally, however the difference is that you also get to specify the functions context.</p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            var person1 = {
+                firstName: "Saurabh",
+                lastName: "Verma"
+            };
+
+            function callFunction(greetingMessage) {
+                alert(`${greetingMessage}, ${this.firstName} ${this.lastName}`);
+            }
+
+            $("#anchorCallFunction").on("click", function () {
+                callFunction.call(person1, "Hello");
+            });
+        </code></pre>
+    </div>
+
+    <p><a href="#" id="anchorApplyFunction"><strong>Apply Function</strong></a> - Apply is exactly the same as call apart from the fact that you pass in the functions arguments as an array and not separately.</p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+
+            var person2 = {
+                firstName: "Milind",
+                lastName: "Verma"
+            }
+
+            var greetMessage = ["Good", "Morning"];
+
+            function applyFunction(firstMsg, secondMsg) {
+                alert(`${firstMsg} ${secondMsg}, ${this.firstName} ${this.lastName}`);
+            }
+
+            $("#anchorApplyFunction").on("click", function () {
+                applyFunction.apply(person2, greetMessage);
+            });
+
+        </code></pre>
+    </div>
+
+    <p><a href="#" id="anchorBindFunction"><strong>Bind Function</strong></a> - The bind method enables you to pass arguments to a function without invoking it. Instead, it returns a new function with the arguments bound preceding any further arguments.</p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+            function bindFunction(greetingMessage, middleName) {
+                alert(`${greetingMessage}, ${this.firstName} ${middleName} ${this.lastName}`);
+            }
+
+            $("#anchorBindFunction").on("click", function () {
+                var callFun = bindFunction.bind(person1, "Hello");
+                callFun("Blank");
+            });
+        </code></pre>
+    </div>
+
+
+</body>
+
+</html>
