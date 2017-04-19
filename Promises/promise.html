@@ -15,6 +15,13 @@
         <pre>
             The Promise object is used for asynchronous computations. 
             A Promise represents a value which may be available now, or in the future, or never.
+
+            <strong>executor -</strong>
+            A function that is passed with the arguments resolve and reject. 
+            The executor function is executed immediately by the Promise implementation, passing resolve and reject functions (the executor is called before the Promise constructor even returns the created object).
+            
+            As the Promise.prototype.then() and Promise.prototype.catch() methods return promises, they can be chained.
+            <img src="promise.png" />
             ------------------------------------------------------------------------------------            
             
             A Promise is in one of these states:

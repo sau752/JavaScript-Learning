@@ -31,7 +31,6 @@ $(function () {
     });
 
     //Bind
-
     function bindFunction(greetingMessage, middleName) {
         alert(`${greetingMessage}, ${this.firstName} ${middleName} ${this.lastName}`);
     }
