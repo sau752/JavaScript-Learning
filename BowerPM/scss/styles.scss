@@ -1,0 +1,9 @@
+.code {
+    background: #eff0f1;
+    color: black;
+
+    .nestedclass {
+       border: 1px solid black; 
+       transition: all 0.2s ease;
+    }
+}
