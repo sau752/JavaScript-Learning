@@ -5,6 +5,7 @@
     <title>Bower Package Manager</title>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bowerscript.js"></script>
+    <link rel="stylesheet" href="styles.css" >
 </head>
 
 <body>
@@ -13,21 +14,32 @@
 
    <p>
         <pre>
-            
+            <strong>Installing Bower</strong>
+            To work with Bower you'll need Node.js and git. Installation:
+            <code class="code">> npm install -g bower</code>
 
+            Install something, for example jQuery:
+            <code class="code">> bower install --save jquery </code>
+
+            The --save flag tells Bower that it should save the package name and its version into the bower.json manifest file. 
+            In this file is a list of all dependencies of the project (packages installed with Bower) and other metadata required for creation of your own packages (more on this at the end of the article). 
+            With the package names it's possible to specify the version with which your project is guaranteed to work.
+
+            Create bower.json file
+            <code class="code">> bower init</code>
+
+            Remove bower folder to commit to github
+
+            To fetch everything use below command-
+            <code class="code">> bower install</code>
+
+            Updating Dependencies
+            <code class="code">> npm install -g bower-update</code>
             <strong> -</strong>
            
             <img src="bower.png" />
-            ------------------------------------------------------------------------------------            
-            
 
-            ------------------------------------------------------------------------------------
-            
-            Usage-
-
-            ------------------------------------------------------------------------------------
-
-            Reference - <a href="https://www.sitepoint.com/overview-javascript-promises/" target="_blank">sitepoint</a>
+            Reference - <a href="http://frontendbabel.info/articles/bower-why-frontend-package-manager/" target="_blank">sitepoint</a>
             
         </pre>
     </p>
