@@ -1,0 +1,21 @@
+{
+  "name": "BowerPM",
+  "homepage": "https://github.com/sau752/JavaScript-Learning",
+  "authors": [
+    "sau752"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
