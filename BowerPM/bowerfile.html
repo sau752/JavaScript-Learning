@@ -10,7 +10,7 @@
 
 <body>
 
-    <h1>Bower Package Manager</h1>
+    <h1>Bower Package Manager - Frontend Workflows</h1>
 
    <p>
         <pre>
@@ -39,6 +39,33 @@
            
             <img src="bower.png" />
 
+            <strong>
+            BUILD SYSTEM
+            </strong>
+
+            Why you need Build System?
+
+            -Repetitive Tasks
+                *Concatenating JavaScript (Less number of request)
+                *Prefixing css
+            -Utilities
+                *JSLint
+                *Uglify
+            -Local Server
+            -Live Reload
+
+
+            Why good?
+
+            Page Speed
+                -Less file request for page load
+                -Faster file requests
+
+            Development Workflow
+                *SASS
+                *Avoid code conflicts
+
+
             Reference - <a href="http://frontendbabel.info/articles/bower-why-frontend-package-manager/" target="_blank">sitepoint</a>
             
         </pre>
@@ -49,7 +76,55 @@
 
     <div style="border: 1px solid black">
         <pre><code>
-            
+            var gulp = require('gulp');
+
+            //include plugins
+
+            var jslint = require('gulp-jslint');
+            var sass = require('gulp-sass');
+            var uglify = require('gulp-uglify');
+            var plumber = require('gulp-plumber');
+            var img = require('gulp-imagemin');
+            var prefix = require('gulp-autoprefixer');
+
+            gulp.task('default', ['watch', 'jslint', 'styles']);
+
+            /*Gulp watch commands*/
+
+            gulp.task('watch', function () {
+                /*var watcher = gulp.watch('*.js');
+                watcher.on('change', function (event) {
+                    console.log('File: ' + event.path + ' changed');
+                })*/
+
+                gulp.watch('bowerscript.js', ['jsline']);
+                gulp.watch('scss/*.scss', ['styles']);
+            })
+
+            gulp.task('jslint', function () {
+                gulp.src('bowerscript.js')
+                    .pipe(plumber())
+                    .pipe(jslint())
+                    .pipe(jslint.reporter('default'))
+                    .pipe(uglify())
+                    .pipe(gulp.dest('js/'));
+            })
+
+            gulp.task('image', function () {
+                gulp.src('bower.png')
+                .pipe(img())
+                .pipe(gulp.dest('image/'))
+            })
+
+            gulp.task('styles', function () {
+                gulp.src("scss/*.scss")
+                    .pipe(plumber())
+                    .pipe(sass({
+                        outputStyle: 'expanded' //compressed
+                    }))
+                    .pipe(prefix())
+                    .pipe(gulp.dest('css/'))
+            })
         </code></pre>
     </div>
 
