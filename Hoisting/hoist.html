@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>JavaScript Hoisting</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="hoist.js"></script>
+</head>
+
+<body>
+
+    <h1>JavaScript Hoisting</h1>
+
+    <p>
+        <pre>
+            <strong>Hoisting is JavaScript interpreter's action of declaring all variables and functions at the top of the current scope.</strong>
+            
+
+        </pre>
+    </p>
+
+
+    <p><a href="#" id="variableHoistFunction1"><strong>Hoist Variable 1</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+         alert(a);  //is not defined   
+        </code></pre>
+    </div>
+    <p><a href="#" id="variableHoistFunction2"><strong>Hoist Variable 2</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+        var a;
+        alert(a); //Undefined 
+        a = 5;   
+        </code></pre>
+    </div>
+    <p><a href="#" id="variableHoistFunction3"><strong>Hoist Variable 3</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+          alert(a);  //Undefined
+          var a = 5;   
+        </code></pre>
+    </div>
+    <p><a href="#" id="variableHoistFunction4"><strong>Hoist Variable 4</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+        var name = "Saurabh";
+        (function () {
+            alert(name); //Undefined
+            var name = "Milind"
+            alert(name); //Milind
+        }());   
+        </code></pre>
+    </div>
+    <p><a href="#" id="HoistFunction1"><strong>Function Hoisting 1</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+        hoist();
+        function hoist() {
+            alert("function is defined later");
+        }  
+        </code></pre>
+    </div>
+
+    <p><a href="#" id="HoistFunction2"><strong>Function Hoisting 2</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+        hoist();    // hoist is not a function
+        var hoist = function () {
+            alert("function is defined later");
+        }   
+        </code></pre>
+    </div>
+
+    <p><a href="#" id="HoistFunction3"><strong>Function Hoisting 3</strong></a></p>
+
+    <div style="border: 1px solid black">
+        <pre><code>
+        abc();  // abc is not defined
+        hoist();    // undefined is not a function
+        var hoist = function abc() {
+            alert("function is defined later");
+        }   
+        </code></pre>
+    </div>
+
+</body>
+
+</html>
